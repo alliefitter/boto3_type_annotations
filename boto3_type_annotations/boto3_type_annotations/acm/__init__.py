@@ -1,4 +1,4 @@
-from boto3_type_annotations.boto3_type_annotations.acm.client import Client
+from boto3_type_annotations.acm.client import Client
     
 __all__ = (
     'Client'

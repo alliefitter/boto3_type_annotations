@@ -11,7 +11,7 @@ setup(
     license='MIT License',
     author='Allie Fitter',
     author_email='fitterj@gmail.com',
-    description='Type annotations for boto3. Adds code completion in IDEs such as PyCharm.',
+    description='Type annotations for boto3. Adds code completion in IDEs such as PyCharm. Includes boto3 docstrings.',
     classifiers=(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

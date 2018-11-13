@@ -139,7 +139,7 @@ def write_client(client: Client, with_docs: bool = False, package_name: str = 'b
         file_object.write(f'\n\n\nclass Client(BaseClient):')
         write_methods(client.methods, file_object, include_doc=with_docs)
     return [{
-        'import_statement': f'from {package_name}.boto3_type_annotations.{normalized_module_name}.client import Client',
+        'import_statement': f'from boto3_type_annotations.{normalized_module_name}.client import Client',
         'name': 'Client'
     }]
 
@@ -209,21 +209,21 @@ def write_service_resource(
             file_object.write('\nfrom boto3.resources import base\n')
         write_resource(service_resource, 'ServiceResource', file_object, with_docs)
         defined_objects.append({
-            'import_statement': f'from {package_name}.boto3_type_annotations.{normalized_module_name}'
+            'import_statement': f'from boto3_type_annotations.{normalized_module_name}'
                                 f'.service_resource import ServiceResource',
             'name': 'ServiceResource'
         })
         for resource in service_resource.sub_resources:
             write_resource(resource, resource.name, file_object, with_docs)
             defined_objects.append({
-                'import_statement': f'from {package_name}.boto3_type_annotations.{normalized_module_name}'
+                'import_statement': f'from boto3_type_annotations.{normalized_module_name}'
                                     f'.service_resource import {resource.name}',
                 'name': resource.name
             })
         for collection in service_resource.collections:
             write_collection(collection, file_object, with_docs)
             defined_objects.append({
-                'import_statement': f'from {package_name}.boto3_type_annotations.{normalized_module_name}'
+                'import_statement': f'from boto3_type_annotations.{normalized_module_name}'
                                     f'.service_resource import {collection.name}',
                 'name': collection.name
             })
@@ -272,7 +272,7 @@ def write_service_waiter(
                 file_object.write(f'\n\nclass {waiter.name}(Waiter):')
                 write_methods(waiter.methods, file_object, include_doc=with_docs)
                 defined_objects.append({
-                    'import_statement': f'from {package_name}.boto3_type_annotations.{normalized_module_name}.waiter '
+                    'import_statement': f'from boto3_type_annotations.{normalized_module_name}.waiter '
                                         f'import {waiter.name}',
                     'name': waiter.name
                 })
@@ -301,7 +301,7 @@ def write_service_paginator(
                 file_object.write(f'\n\nclass {paginator.name}(Paginator):')
                 write_methods(paginator.methods, file_object, include_doc=with_docs)
                 defined_objects.append({
-                    'import_statement': f'from {package_name}.boto3_type_annotations.{normalized_module_name}'
+                    'import_statement': f'from boto3_type_annotations.{normalized_module_name}'
                                         f'.paginator import {paginator.name}',
                     'name': paginator.name
                 })

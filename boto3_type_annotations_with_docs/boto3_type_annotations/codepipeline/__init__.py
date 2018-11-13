@@ -1,4 +1,4 @@
-from boto3_type_annotations_with_docs.boto3_type_annotations.codepipeline.client import Client
+from boto3_type_annotations.codepipeline.client import Client
     
 __all__ = (
     'Client'

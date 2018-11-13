@@ -133,6 +133,11 @@ appropriate deployment package.
 
 ## TODO
 
+- Create an "essentials" deployment package only containing often used services like Lambda, S3, SQS, and CloudFormation
+
+- Package related services into separate deployment packages, to create smaller packages containing only service
+  that are essential to a use case, group EC2 and RDS for instance.
+
 - Create custom builds. If a project only uses S3's service resource, provide a way to build a deployment package 
   containing just that package. This would require some sort of configuration and more mature build script.
   

@@ -1,9 +1,9 @@
 from typing import Optional
-from typing import Dict
-from typing import NoReturn
-from typing import List
-from typing import Union
 from boto3.resources.collection import ResourceCollection
+from typing import Dict
+from typing import Union
+from typing import List
+from typing import NoReturn
 from datetime import datetime
 from boto3.resources import base
 

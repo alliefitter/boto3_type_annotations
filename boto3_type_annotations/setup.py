@@ -5,7 +5,7 @@ with open('../README.md', 'r') as f:
 
 setup(
     name='boto3_type_annotations',
-    version='0.1.1',
+    version='0.2.1',
     packages=find_packages(),
     url='https://github.com/alliefitter/boto3_type_annotations',
     license='MIT License',

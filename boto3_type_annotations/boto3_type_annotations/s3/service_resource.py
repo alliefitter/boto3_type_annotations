@@ -1,14 +1,14 @@
-from boto3.s3.transfer import TransferConfig
-from typing import Callable
-from botocore.client import BaseClient
 from typing import Optional
-from typing import Dict
-from typing import NoReturn
-from typing import List
-from typing import IO
-from typing import Union
 from boto3.resources.collection import ResourceCollection
+from typing import Dict
+from typing import Union
+from typing import List
+from typing import Callable
+from boto3.s3.transfer import TransferConfig
+from typing import NoReturn
+from botocore.client import BaseClient
 from datetime import datetime
+from typing import IO
 from boto3.resources import base
 
 
