@@ -16,7 +16,7 @@ mimic the class structure of `boto3`'s objects. And with Python's `typing` modul
 dummy objects with the types which we've parsed. What this means is that we can use these dummy objects to declare the
 type of `boto3` service objects in our own code.
 
-[[https://github.com/alliefitter/boto3_type_annotations/blob/master/img/boto3_type_annotations.gif]]
+![types!](https://github.com/alliefitter/boto3_type_annotations/blob/master/img/boto3_type_annotations.gif)
 
 ## With or Without Docstrings
 
